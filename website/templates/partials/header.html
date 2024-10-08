@@ -38,8 +38,13 @@
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-
-        <a class="btn-getstarted" href="#about">Get Started</a>
+        {% if user.is_authenticated %}
+            <p class="text-success">{{user}}</p>
+          <a href="{% url 'logout' %}" class="btn-getstarted" href="#about">Logout</a>
+        {%else%}
+            <a href="{% url 'login' %}" class="btn-getstarted" href="#about">Login</a>
+        {% endif %}
+       
 
     </div>
 </header>
